@@ -8,6 +8,7 @@ This repository contains **8 hands-on labs** for learning AI-assisted applicatio
 - **6 Java Modernization Labs** - Transform legacy Java applications step-by-step
 - **2 Figma Integration Labs** - Learn to integrate IBM Bob with Figma for UI design
 
+Link to Demos: https://ibm.ent.box.com/notes/2163039680541
 ---
 
 ## 📑 Table of Contents
