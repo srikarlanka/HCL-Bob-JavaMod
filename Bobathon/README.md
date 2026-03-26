@@ -173,13 +173,13 @@ This workshop contains **8 hands-on labs** covering Java modernization and Figma
 - Executing automated Liberty replatforming transformations
 - Validating migrated applications
 
-**Starting Point:** `bobathon/Bobathon/labs/lab1-java-liberty-replatforming/snapA-java-liberty-replatforming/`
+**Starting Point:** `labs/lab1-java-liberty-replatforming/snapA-java-liberty-replatforming/`
 
 **Tech Stack:**
 - **Before:** Traditional WebSphere 9, Java 8, Struts
 - **After:** Liberty Runtime, Java 8, Struts
 
-**📘 [View Lab 1 Guide](Bobathon/labs/lab1-java-liberty-replatforming/LAB1-GUIDE.md)**
+**📘 [View Lab 1 Guide](labs/lab1-java-liberty-replatforming/LAB1-GUIDE.md)**
 
 [↑ Back to Top](#bobathon---java-modernization-labs)
 
@@ -197,13 +197,13 @@ This workshop contains **8 hands-on labs** covering Java modernization and Figma
 - Updating dependencies and configurations for Java 21
 - Validating Java 21 compatibility
 
-**Starting Point:** `bobathon/Bobathon/labs/lab2-java-upgrade/snapB-java-upgrade/`
+**Starting Point:** `labs/lab2-java-upgrade/snapB-java-upgrade/`
 
 **Tech Stack:**
 - **Before:** Liberty Runtime, Java 8, Struts
 - **After:** Liberty Runtime, Java 21, Struts
 
-**📘 [View Lab 2 Guide](Bobathon/labs/lab2-java-upgrade/LAB2-GUIDE.md)**
+**📘 [View Lab 2 Guide](labs/lab2-java-upgrade/LAB2-GUIDE.md)**
 
 [↑ Back to Top](#bobathon---java-modernization-labs)
 
@@ -221,13 +221,13 @@ This workshop contains **8 hands-on labs** covering Java modernization and Figma
 - Implementing RESTful API integration
 - Building modern, responsive user interfaces
 
-**Starting Point:** `bobathon/Bobathon/labs/lab3-ui-modernization/snapC-ui-mod/`
+**Starting Point:** `labs/lab3-ui-modernization/snapC-ui-mod/`
 
 **Tech Stack:**
 - **Before:** Liberty Runtime, Java 21, Struts (JSP views)
 - **After:** Liberty Runtime, Java 21, Angular 19 (REST API + SPA)
 
-**📘 [View Lab 3 Guide](Bobathon/labs/lab3-ui-modernization/LAB3-GUIDE.md)**
+**📘 [View Lab 3 Guide](labs/lab3-ui-modernization/LAB3-GUIDE.md)**
 
 [↑ Back to Top](#bobathon---java-modernization-labs)
 
@@ -246,13 +246,13 @@ This workshop contains **8 hands-on labs** covering Java modernization and Figma
 - Achieving high code coverage (>80%)
 - Validating test quality and effectiveness
 
-**Starting Point:** `Bobathon/snapshots/start-states/snapD-unit-test-gen/`
+**Starting Point:** `snapshots/start-states/snapD-unit-test-gen/`
 
 **Tech Stack:**
 - **Before:** Liberty Runtime, Java 21, Angular (no tests)
 - **After:** Liberty Runtime, Java 21, Angular + comprehensive unit tests
 
-**📘 [View Lab 4 Guide](Bobathon/labs/lab4-unit-test-generation/LAB4-GUIDE.md)**
+**📘 [View Lab 4 Guide](labs/lab4-unit-test-generation/LAB4-GUIDE.md)**
 
 [↑ Back to Top](#bobathon---java-modernization-labs)
 
@@ -270,13 +270,13 @@ This workshop contains **8 hands-on labs** covering Java modernization and Figma
 - Comparing TDD vs traditional development approaches
 - Understanding benefits of test-first development
 
-**Starting Point:** `Bobathon/labs/alt-lab4-test-driven-development/snapTDD/`
+**Starting Point:** `labs/alt-lab4-test-driven-development/snapTDD/`
 
 **Tech Stack:**
 - **Input:** OpenAPI 3.0 specification for prescription management
 - **Output:** Java 21 JAX-RS REST API with JUnit 5 tests
 
-**📘 [View Lab Alt-4 (TDD) Guide](Bobathon/labs/alt-lab4-test-driven-development/LAB-TDD-GUIDE.md)**
+**📘 [View Lab Alt-4 (TDD) Guide](labs/alt-lab4-test-driven-development/LAB-TDD-GUIDE.md)**
 
 [↑ Back to Top](#bobathon---java-modernization-labs)
 
@@ -295,13 +295,13 @@ This workshop contains **8 hands-on labs** covering Java modernization and Figma
 - Implementing input validation and sanitization
 - Validating security improvements
 
-**Starting Point:** `Bobathon/snapshots/start-states/snapE-security-vulnerabilities/`
+**Starting Point:** `snapshots/start-states/snapE-security-vulnerabilities/`
 
 **Tech Stack:**
 - **Before:** Liberty Runtime, Java 21, Angular (with security vulnerabilities)
 - **After:** Liberty Runtime, Java 21, Angular (security-hardened)
 
-**📘 [View Lab 5 Guide](Bobathon/labs/lab5-security-vulnerability-remediation/LAB5-GUIDE.md)**
+**📘 [View Lab 5 Guide](labs/lab5-security-vulnerability-remediation/LAB5-GUIDE.md)**
 
 [↑ Back to Top](#bobathon---java-modernization-labs)
 
@@ -328,7 +328,7 @@ This workshop contains **8 hands-on labs** covering Java modernization and Figma
 
 **Duration:** 30-45 minutes
 
-**📘 [View Figma-Editor Guide](Figma-Editor/README.md)**
+**📘 [View Figma-Editor Guide](../Figma-Editor/README.md)**
 
 **Lab Files:** `Figma-Editor/` folder contains PDF guide and resources
 
@@ -360,7 +360,7 @@ This workshop contains **8 hands-on labs** covering Java modernization and Figma
 
 **Duration:** 30-45 minutes
 
-**📘 [View Figma-NonEditor Guide](Figma-NonEditor/README.md)**
+**📘 [View Figma-NonEditor Guide](../Figma-NonEditor/README.md)**
 
 **Lab Files:** `Figma-NonEditor/` folder contains PDF guide, code, and Docker setup
 
@@ -389,8 +389,6 @@ A YAML configuration template for customizing Java modernization exports:
 - Output path configuration
 - Analysis depth settings
 - Metric collection options
-
-**📘 [View Templates Guide](TEMPLATES_GUIDE.md)** for detailed usage instructions
 
 [↑ Back to Top](#bobathon---java-modernization-labs)
 

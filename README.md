@@ -2,7 +2,7 @@
 
 ## 🚀 New to This Repository?
 
-**Start here:** [GETTING_STARTED.md](GETTING_STARTED.md) - Complete guide to get up and running in 10 minutes!
+**Start here:** [GETTING_STARTED.md](Bobathon/GETTING_STARTED.md) - Complete guide to get up and running in 10 minutes!
 
 This repository contains **8 hands-on labs** for learning AI-assisted application modernization:
 - **6 Java Modernization Labs** - Transform legacy Java applications step-by-step
@@ -173,7 +173,7 @@ This workshop contains **8 hands-on labs** covering Java modernization and Figma
 - Executing automated Liberty replatforming transformations
 - Validating migrated applications
 
-**Starting Point:** `bobathon/Bobathon/labs/lab1-java-liberty-replatforming/snapA-java-liberty-replatforming/`
+**Starting Point:** `Bobathon/labs/lab1-java-liberty-replatforming/snapA-java-liberty-replatforming/`
 
 **Tech Stack:**
 - **Before:** Traditional WebSphere 9, Java 8, Struts
@@ -197,7 +197,7 @@ This workshop contains **8 hands-on labs** covering Java modernization and Figma
 - Updating dependencies and configurations for Java 21
 - Validating Java 21 compatibility
 
-**Starting Point:** `bobathon/Bobathon/labs/lab2-java-upgrade/snapB-java-upgrade/`
+**Starting Point:** `Bobathon/labs/lab2-java-upgrade/snapB-java-upgrade/`
 
 **Tech Stack:**
 - **Before:** Liberty Runtime, Java 8, Struts
@@ -221,7 +221,7 @@ This workshop contains **8 hands-on labs** covering Java modernization and Figma
 - Implementing RESTful API integration
 - Building modern, responsive user interfaces
 
-**Starting Point:** `bobathon/Bobathon/labs/lab3-ui-modernization/snapC-ui-mod/`
+**Starting Point:** `Bobathon/labs/lab3-ui-modernization/snapC-ui-mod/`
 
 **Tech Stack:**
 - **Before:** Liberty Runtime, Java 21, Struts (JSP views)
@@ -373,7 +373,7 @@ This workshop contains **8 hands-on labs** covering Java modernization and Figma
 This repository includes helpful templates and configuration files:
 
 ### IBM Bob Model Import Template
-**File:** `IBM_BOB_Model_Import_Template.pdf`
+**File:** `Bobathon/IBM_BOB_Model_Import_Template.pdf`
 
 A reference guide for importing AI models into IBM Bob, including:
 - Model configuration instructions
@@ -382,15 +382,13 @@ A reference guide for importing AI models into IBM Bob, including:
 - Troubleshooting tips
 
 ### Java Modernization Export Configuration
-**File:** `java-modernization-export.yaml`
+**File:** `Bobathon/java-modernization-export.yaml`
 
 A YAML configuration template for customizing Java modernization exports:
 - Export format options
 - Output path configuration
 - Analysis depth settings
 - Metric collection options
-
-**📘 [View Templates Guide](TEMPLATES_GUIDE.md)** for detailed usage instructions
 
 [↑ Back to Top](#bobathon---java-modernization-labs)
 
