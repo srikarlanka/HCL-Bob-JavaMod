@@ -1,5 +1,7 @@
 # Figma Integration Lab - Without Editor Access
 
+**Box Folder Link:** [https://ibm.ent.box.com/folder/373364692035](https://ibm.ent.box.com/folder/373364692035)
+
 ## 📋 Overview
 
 This lab teaches you how to integrate IBM Bob with Figma when you **do NOT have editor access** to Figma files. You'll learn to use IBM Bob to read Figma designs, extract information, and work with design specifications without modifying the original files.

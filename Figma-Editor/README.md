@@ -1,5 +1,7 @@
 # Figma Integration Lab - With Editor Access
 
+**Box Folder Link:** [https://ibm.ent.box.com/folder/373365438389](https://ibm.ent.box.com/folder/373365438389)
+
 ## 📋 Overview
 
 This lab teaches you how to integrate IBM Bob with Figma when you have **editor access** to Figma files. You'll learn to use IBM Bob to interact with Figma designs, make modifications, and understand the Model Context Protocol (MCP) for Figma integration.

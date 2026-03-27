@@ -8,7 +8,10 @@ This repository contains **8 hands-on labs** for learning AI-assisted applicatio
 - **6 Java Modernization Labs** - Transform legacy Java applications step-by-step
 - **2 Figma Integration Labs** - Learn to integrate IBM Bob with Figma for UI design
 
-Link to Java Modernization & Figma Demos: [https://ibm.ent.box.com/folder/365179537734](https://ibm.ent.box.com/folder/365179537734)
+**Links to Demos:**
+- Java Modernization Demos: [https://ibm.ent.box.com/folder/365179537734](https://ibm.ent.box.com/folder/365179537734)
+- Figma Editor Access Lab: [https://ibm.ent.box.com/folder/373365438389](https://ibm.ent.box.com/folder/373365438389)
+- Figma NonEditor Access Lab: [https://ibm.ent.box.com/folder/373364692035](https://ibm.ent.box.com/folder/373364692035)
 ---
 
 ## 📑 Table of Contents
