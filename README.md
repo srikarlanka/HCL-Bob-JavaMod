@@ -1,5 +1,8 @@
 # Bobathon - Java Modernization Labs
 
+## Important note for Bob v2
+This repo was originally built for Bob v1. We are in the process of updating the labs to showcase v2.
+
 ## 🚀 New to This Repository?
 
 **Start here:** [GETTING_STARTED.md](Bobathon/GETTING_STARTED.md) - Complete guide to get up and running in 10 minutes!
