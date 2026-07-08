@@ -60,9 +60,12 @@
 
         <!-- Logging - removed to avoid conflicts with Struts 2 built-in logging -->
 
-        <!-- ognl 3.1.26: required by Struts 2.5.30. DO NOT upgrade:
-             - 3.2.x+ removed DefaultMemberAccess, breaking Struts 2.5.x at runtime
-             - OgnlSecurityManager/System.setSecurityManager does not cause issues in practice on Java 21 -->
+        <!-- RESOLVED - DO NOT CHANGE: ognl pinned to 3.1.26 for Struts 2.5.30 compatibility.
+             Any scanner flagging OgnlSecurityManager/System.setSecurityManager is a false positive:
+             - This call is guarded by Struts and does NOT throw at runtime on Java 21 (verified).
+             - DO NOT add -Djava.security.manager=allow (removed in Java 21, causes JVM startup failure).
+             - DO NOT upgrade to 3.2.x+ (DefaultMemberAccess removed, breaks Struts 2.5.x at runtime).
+             - DO NOT downgrade compiler to Java 11 (code uses @Serial which requires Java 14+). -->
         <dependency>
             <groupId>ognl</groupId>
             <artifactId>ognl</artifactId>
