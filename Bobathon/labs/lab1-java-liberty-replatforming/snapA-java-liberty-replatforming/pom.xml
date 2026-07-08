@@ -60,11 +60,30 @@
 
         <!-- Logging - removed to avoid conflicts with Struts 2 built-in logging -->
 
-        <!-- ognl 3.1.26 is required by Struts 2.5.30 (3.3.x removed DefaultMemberAccess) -->
+        <!-- ognl 3.1.26: required by Struts 2.5.30. DO NOT upgrade:
+             - 3.2.x+ removed DefaultMemberAccess, breaking Struts 2.5.x at runtime
+             - OgnlSecurityManager/System.setSecurityManager does not cause issues in practice on Java 21 -->
         <dependency>
             <groupId>ognl</groupId>
             <artifactId>ognl</artifactId>
             <version>3.1.26</version>
+        </dependency>
+
+        <!-- Override ASM bundled in struts2-convention-plugin to support Java 21 class files (major version 65) -->
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>9.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm-commons</artifactId>
+            <version>9.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm-tree</artifactId>
+            <version>9.7</version>
         </dependency>
     </dependencies>
 
