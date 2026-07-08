@@ -1,5 +1,4 @@
-# IBM Bob AI Copilot - Unit Test Generation Lab Guide (V2)
-## Simple Pharmacy Dashboard - Comprehensive Test Coverage
+# IBM Bob - Unit Test Generation Lab Guide (V2)
 
 ---
 
@@ -47,10 +46,14 @@ By the end of this lab, you will:
 # Prerequisites
 
 ### 1. IBM Bob IDE (V2)
-- Latest Bob V2 IDE extension installed
-- Bob subscription tier that includes the Java Unit Testing workflow (the Premium package)
+Latest Bob V2 IDE extension installed with the Java premium package on your plan.
 
 ### 2. Terminal Environment (macOS zsh)
+Check that SDKMAN is set up:
+```
+sdk version
+```
+
 If SDKMAN isn't set up:
 ```bash
 curl -s "https://get.sdkman.io" | bash
@@ -70,6 +73,12 @@ java -version   # should show 21
 ```
 
 ### 4. Maven
+Check if maven is installed already:
+```
+mvn -v
+```
+
+If not, install it:
 ```bash
 sdk install maven
 ```
@@ -79,17 +88,25 @@ Fully quit and restart Bob after installing Maven.
 
 ---
 
-# V2 Feature Highlights
+# Workflow Steps Highlights
 
-Worth watching for and demonstrating during this lab:
+1. **Project Analysis** — Scans the project structure, build tool, and existing test infrastructure (JUnit version, JaCoCo, Surefire plugin) to understand the starting state.
 
-- **Standalone workflow at the top level**: Java Unit Testing has its own workflow entry — no sub-type selection required.
-- **Autonomous setup**: Bob installs JaCoCo and drafts the test strategy **without** approval prompts. Different from the Java Modernization workflow, which prompts for every pom change.
-- **Task-selection screen**: choose whether to regenerate the strategy, generate tests, run coverage, and enable Git Flow. Includes a **Candidate Selection Strategy** dropdown (default: All classes).
-- **Cost/time preview**: before expensive operations, Bob shows expected duration and Bob-coin cost with an **80% confidence interval** — a rare bit of self-acknowledged variance in AI tooling.
-- **UNITTEST.md strategy file**: Bob writes a markdown strategy document explaining architecture, planned tests, coverage thresholds, and identified gaps.
-- **Self-correcting recovery tasks**: if the workflow hits build issues mid-run (stale class files, compile race conditions, etc.), it adds unplanned recovery subtasks and fixes them without user prompting.
-- **Coverage baseline reported explicitly**: rather than promising a hardcoded target, Bob reports the actual measured baseline (e.g. "46% overall, 89% on api package") so participants have honest expectations.
+2. **Test Strategy Generation** — Produces a UNITTEST.md strategy document defining conventions: naming patterns, mocking approach, isolation rules, and scope.
+
+3. **Task-selection screen**: choose whether to regenerate the strategy, generate tests, run coverage, and enable Git Flow. Includes a **Candidate Selection Strategy** dropdown (default: All classes).
+
+4. **Cost/time preview**: before expensive operations, Bob shows expected duration and Bob-coin cost with an **80% confidence interval** — a rare bit of self-acknowledged variance in AI tooling.
+
+5. **Test Generation** (Batched Subagents) — Spawns parallel subagents per package/batch, each reading the production class and UNITTEST.md to write focused JUnit 5 tests with Mockito mocks where needed.
+
+6. **Build & Dependency Updates** — Adds missing test dependencies (junit-jupiter, mockito-core, mockito-junit-jupiter, JAX-RS runtime for container-free tests) to pom.xml as needed.
+
+7. **Self-correcting recovery tasks**: if the workflow hits build issues mid-run (stale class files, compile race conditions, etc.), it adds unplanned recovery subtasks and fixes them without user prompting.
+
+8. **Test Execution & Validation** — Runs mvn test and fixes any failures before proceeding, ensuring a green suite throughout.
+
+9. **Coverage Reporting** — Runs the full suite with JaCoCo enabled and surfaces per-class instruction coverage, highlighting any remaining gaps.
 
 ---
 
@@ -105,7 +122,7 @@ Use the `snapD-*` subfolder, not the parent `lab4-*` folder.
 Bob's chat panel should show **Agent** at the bottom.
 
 ### 3. Confirm the workflow appears
-Look for **Java Unit Testing** in Bob's chat panel workflow list (it's a top-level workflow — not a sub-type of Java Modernization).
+Look for **Java Unit Testing** in Bob's chat panel workflow list (it's a top-level workflow)
 
 ---
 
@@ -120,7 +137,8 @@ Look for **Java Unit Testing** in Bob's chat panel workflow list (it's a top-lev
    Bob will:
    - Detect that no code coverage tool is configured
    - Install JaCoCo into pom.xml
-   - Draft the test strategy
+   - Read through the codebase to develop a testing strategy
+   - Draft the test strategy, UNITTEST.md
 
    No approval prompts appear during this phase — this is expected.
 
@@ -141,7 +159,7 @@ Look for **Java Unit Testing** in Bob's chat panel workflow list (it's a top-lev
    Note the 80% confidence phrasing. Click **Proceed with test generation**.
 
 5. **Batch generation**
-   Bob generates tests in batches organized by package:
+   Bob generates tests in batches organized by package leveraging subagents with isolated contexts:
    - `com.pharmacy.repository` (3 classes)
    - `com.pharmacy.api` — first batch (1 class)
    - `com.pharmacy.model` (3 classes)
@@ -150,7 +168,7 @@ Look for **Java Unit Testing** in Bob's chat panel workflow list (it's a top-lev
    If Bob hits build issues mid-run (stale `.class` files, incremental compile race), it will add recovery subtasks and fix them autonomously.
 
 6. **Test execution and coverage report**
-   After all batches complete, Bob runs `mvn test` and reports pass/fail counts, then generates a JaCoCo coverage report.
+   After all batches complete, Bob runs `mvn test` and reports pass/fail counts, then generates a JaCoCo coverage report. If a report is not automatically generated or surfaced, just ask Bob `please generate a JaCoCo coverage report`
 
 7. **Workflow summary**
    Bob prints a per-task cost breakdown and a modernization summary graphic. Typical actual cost lands well under the preview (e.g. ~4.5 coins vs an ~11 coin preview).
@@ -198,34 +216,6 @@ If repositories use the singleton pattern, look for how Bob mocks it — a commo
 
 ---
 
-# Troubleshooting
-
-## Issue 1: `mvn test` reports "cannot find symbol" or missing classes
-
-**Symptom:** Test classes reference source classes Bob thinks exist but the compile step disagrees.
-
-**Solution:** Stale `.class` files from a prior run can cause this. Run `mvn clean test` (not just `mvn test`) to force a full recompile.
-
-## Issue 2: Some generated tests fail
-
-**Symptom:** After Bob completes, a small number of tests fail on `mvn test`.
-
-**Solution:** Ask Bob in the chat to review and fix the failing tests specifically: "the following tests are failing: [paste output]. Please fix them without changing production code." Bob will iterate on the tests until they pass.
-
-## Issue 3: JaCoCo coverage report doesn't appear
-
-**Symptom:** No `target/site/jacoco/` directory after the run.
-
-**Solution:** Run `mvn clean test jacoco:report`. The coverage report requires the `jacoco:report` goal explicitly.
-
-## Issue 4: Bob's terminal shows the wrong Java version
-
-**Symptom:** `java -version` in Bob's terminal shows 8 instead of 21.
-
-**Solution:** `sdk use java 21.0.11-zulu` in Bob's terminal specifically. `sdk use` is shell-scoped and doesn't apply across terminal tabs.
-
----
-
 # Conclusion
 
 You've completed the Unit Test Generation lab using Bob V2's Java Unit Testing workflow. You should now be comfortable with:
@@ -237,5 +227,33 @@ You've completed the Unit Test Generation lab using Bob V2's Java Unit Testing w
 - ✅ Interpreting the coverage baseline Bob reports at the end
 
 Ready for Lab 5 (Vulnerabilities Detection) next.
+
+---
+
+## Troubleshooting
+
+### Issue 1: `mvn test` reports "cannot find symbol" or missing classes
+
+**Symptom:** Test classes reference source classes Bob thinks exist but the compile step disagrees.
+
+**Solution:** Stale `.class` files from a prior run can cause this. Run `mvn clean test` (not just `mvn test`) to force a full recompile.
+
+### Issue 2: Some generated tests fail
+
+**Symptom:** After Bob completes, a small number of tests fail on `mvn test`.
+
+**Solution:** Ask Bob in the chat to review and fix the failing tests specifically: "the following tests are failing: [paste output]. Please fix them without changing production code." Bob will iterate on the tests until they pass.
+
+### Issue 3: JaCoCo coverage report doesn't appear
+
+**Symptom:** No `target/site/jacoco/` directory after the run.
+
+**Solution:** Run `mvn clean test jacoco:report`. The coverage report requires the `jacoco:report` goal explicitly.
+
+### Issue 4: Bob's terminal shows the wrong Java version
+
+**Symptom:** `java -version` in Bob's terminal shows 8 instead of 21.
+
+**Solution:** `sdk use java 21.0.11-zulu` in Bob's terminal specifically. `sdk use` is shell-scoped and doesn't apply across terminal tabs.
 
 ---
