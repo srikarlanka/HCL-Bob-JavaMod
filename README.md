@@ -131,7 +131,7 @@ This workshop guides you through modernizing a **Simple Pharmacy Management Syst
 
 ## Workshop Structure
 
-This workshop contains **8 hands-on labs** covering Java modernization.
+This workshop contains **6 hands-on labs** covering Java modernization.
 
 Each lab is self-contained with its own starting point. The Java labs (1-5) can follow a sequential modernization path or be completed independently.
 
