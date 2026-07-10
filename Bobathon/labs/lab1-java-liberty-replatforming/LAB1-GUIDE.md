@@ -163,6 +163,8 @@ You can control what Bob does automatically using the permissions selector in th
 
 > 💡 **Tip for first-time users:** Start with only **Read** enabled until you're comfortable, then expand permissions as you gain confidence.
 
+![Permissions selector showing Read, Edit, Execute, and MCP toggles](screenshots/Screenshot%202026-07-10%20at%2011.56.12%20AM.png)
+
 ---
 
 # Setting Up
@@ -178,13 +180,19 @@ Bobathon/ce-labs/lab1-java-liberty-replatforming/snapA-java-liberty-replatformin
 
 If the Bob chat window is not already open, select the Bob icon to the right of the search bar at the top of your IDE.
 
+![Bob IDE with snapA folder open in the file explorer](screenshots/Screenshot%202026-07-10%20at%2011.31.42%20AM.png)
+
 ### 2. Confirm Agent mode
 
 In Bob's chat panel, verify the mode indicator at the bottom shows **Agent**. Agent is V2's default mode and replaces V1's `Advanced` and `Code` modes.
 
+![Agent mode indicator at the bottom of the Bob chat panel](screenshots/Screenshot%202026-07-10%20at%2011.32.11%20AM.png)
+
 ### 3. Confirm the workflow appears
 
 Look for the **Java Modernization** workflow in Bob's chat panel workflow list. If it's not visible, verify your team membership in Bob's settings.
+
+![Java Modernization workflow card in the Workflows tab](screenshots/Screenshot%202026-07-10%20at%2011.55.01%20AM.png)
 
 ---
 
@@ -208,10 +216,14 @@ Use Bob's Java Modernization workflow to migrate the pharmacy app from Tradition
    - Leave "Custom build command" blank.
    - Click **Continue**.
 
+   ![Analyze Project panel with project path auto-populated](screenshots/Screenshot%202026-07-10%20at%2011.58.23%20AM.png)
+
 3. **Analyze — Select Modernization Type**
    - Select **Liberty Replatforming**.
    - Toggle **Git Flow** off (Git branch management should be done outside the workflow for this lab).
    - Click **Continue**.
+
+   ![Select Modernization Type panel with Liberty Replatforming selected and Git Flow off](screenshots/Screenshot%202026-07-10%20at%201.00.33%20PM.png)
 
 4. **Upgrade — Provide the AMA migration plan**
    - Paste the full path to the migration plan ZIP file:
@@ -219,6 +231,8 @@ Use Bob's Java Modernization workflow to migrate the pharmacy app from Tradition
      [your local path]/Bobathon/ce-labs/lab1-java-liberty-replatforming/simple-pharmacy.war_migrationPlan.zip
      ```
    - Click **Continue**. Bob will analyze the plan and create a to-do list for modernization.
+
+   ![AMA migration plan path input panel](screenshots/Screenshot%202026-07-10%20at%201.01.39%20PM.png)
 
 5. **Upgrade — Interactive approval flow** ⭐ *V2 feature*
 
@@ -236,6 +250,10 @@ Use Bob's Java Modernization workflow to migrate the pharmacy app from Tradition
 
    > **Note**: If you're ever unsure about an action Bob wants to take, review the reasoning that precedes the request, or ask a follow-up question in chat before approving.
 
+   ![Interactive approval prompt showing Bob's rationale and the three approval options](screenshots/Screenshot%202026-07-10%20at%201.04.21%20PM.png)
+
+   ![Diff preview showing the exact edits Bob is proposing](screenshots/Screenshot%202026-07-10%20at%201.06.30%20PM.png)
+
    **Expected issues on this project** (may vary):
    - Javassist charset warning (dependency exclusion + upgrade)
    - OGNL SecurityManager conflict (dependency upgrade + JVM options file)
@@ -251,6 +269,8 @@ Use Bob's Java Modernization workflow to migrate the pharmacy app from Tradition
    - Confirm the workflow reports "started successfully with no errors," or select the appropriate option based on your logs.
    - If there are errors, copy and paste them into the Bob chat for debugging.
 
+   ![Visual modernization and deployment summary](screenshots/Screenshot%202026-07-10%20at%201.27.24%20PM.png)
+
 ---
 
 # Exercise 2: Verify the Migrated Application
@@ -262,11 +282,15 @@ http://localhost:9080/simple-pharmacy.war/
 
 You should see the pharmacy dashboard with data (prescriptions, orders, medicines).
 
+![Pharmacy dashboard running on Liberty at localhost:9080](screenshots/Screenshot%202026-07-10%20at%201.29.38%20PM.png)
+
 Try navigating to each page to confirm the full app works:
 - `http://localhost:9080/simple-pharmacy.war/dashboard`
 - `http://localhost:9080/simple-pharmacy.war/prescription-list.action`
 - `http://localhost:9080/simple-pharmacy.war/order-list.action`
 - `http://localhost:9080/simple-pharmacy.war/medicine-list.action`
+
+![Prescription list page confirming full app navigation works](screenshots/Screenshot%202026-07-10%20at%201.30.33%20PM.png)
 
 If all pages render correctly, the migration is complete.
 
