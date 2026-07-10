@@ -284,9 +284,16 @@ Open a browser and go to:
 http://localhost:9080/simple-pharmacy.war/
 ```
 
+If Bob adds an explicit context root (`context-root="/simple-pharmacy"`), then the url will be:
+```
+http://localhost:9080/simple-pharmacy/dashboard
+```
+
+
 You should see the pharmacy dashboard with data (prescriptions, orders, medicines).
 
 ![Pharmacy dashboard running on Liberty at localhost:9080](screenshots/screenshot-2026-07-10-at-1.29.38-pm.png)
+
 
 Try navigating to each page to confirm the full app works:
 - `http://localhost:9080/simple-pharmacy.war/dashboard`
