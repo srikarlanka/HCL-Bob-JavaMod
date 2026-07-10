@@ -234,7 +234,7 @@ Use Bob's Java Modernization workflow to migrate the pharmacy app from Tradition
 
    ![AMA migration plan path input panel](screenshots/screenshot-2026-07-10-at-1.01.39-pm.png)
 
-5. **Upgrade — Interactive approval flow** ⭐ *V2 feature*
+5. **Upgrade — Interactive approval flow**
 
    Bob will identify migration issues one at a time. For each issue it will:
    - Explain the root cause
@@ -256,8 +256,12 @@ Use Bob's Java Modernization workflow to migrate the pharmacy app from Tradition
 
    **Expected issues on this project** (may vary):
    - Javassist charset warning (dependency exclusion + upgrade)
+
+      `Fix "Avoid using default charset when the output stream is a PrintStream" rule` -> `Yes, upgrade javassist to 3.29.2-GA via an explicit dependency override in pom.xml`
+
    - OGNL SecurityManager conflict (dependency upgrade + JVM options file)
-   - Liberty class-loading / CDI conflict (`server.xml` adjustments)
+
+      `Fix "The default value of the java.security.manager system property has been changed to disallow" rule` -> `False positive, no changes necessary.`
 
 6. **Upgrade — Deployment**
    - After all fixes are applied, the workflow will build the app and deploy it to Liberty.
