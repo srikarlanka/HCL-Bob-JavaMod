@@ -12,8 +12,9 @@ This repository contains **6 hands-on labs** for learning AI-assisted applicatio
 
 ## Need access to the premium package for Java?
 
-Internal access: https://w3.ibm.com/w3publisher/bob/addons
-Client plan reservation process: https://ibm.ent.box.com/notes/2100313549465?s=eiwj5zdqayajgo4xmpt4w5jjv9da3n5o
+**Internal access**: https://w3.ibm.com/w3publisher/bob/addons
+
+**Client plan reservation process**: https://ibm.ent.box.com/notes/2100313549465?s=eiwj5zdqayajgo4xmpt4w5jjv9da3n5o
 
 ---
 
